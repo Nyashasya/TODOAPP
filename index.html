@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#1a1a2e" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>TaskFlow — Мои задачи</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="header-title">
+        <span class="logo-icon">✦</span>
+        <h1>TaskFlow</h1>
+      </div>
+      <div class="header-stats">
+        <span id="statsLabel" class="stats-label">0 активных</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="filter-tabs" role="tablist">
+    <button class="tab active" data-filter="all" role="tab" aria-selected="true">Все</button>
+    <button class="tab" data-filter="active" role="tab" aria-selected="false">Активные</button>
+    <button class="tab" data-filter="done" role="tab" aria-selected="false">Выполненные</button>
+  </nav>
+
+  <main class="app-main">
+
+    <div class="input-card">
+      <div class="input-row">
+        <input
+          type="text"
+          id="taskInput"
+          class="task-input"
+          placeholder="Новая задача…"
+          maxlength="200"
+          autocomplete="off"
+          aria-label="Текст задачи"
+        />
+        <button id="addBtn" class="add-btn" aria-label="Добавить задачу">
+          <span class="add-icon">+</span>
+        </button>
+      </div>
+      <div id="inputError" class="input-error" role="alert" aria-live="polite"></div>
+    </div>
+
+    <section class="task-list-section" aria-label="Список задач">
+      <ul id="taskList" class="task-list" role="list"></ul>
+
+      <div id="emptyState" class="empty-state hidden">
+        <div class="empty-icon">📋</div>
+        <p class="empty-title">Список пуст</p>
+        <p class="empty-hint">Добавьте первую задачу выше</p>
+      </div>
+    </section>
+
+    <div class="footer-actions">
+      <button id="clearDoneBtn" class="clear-btn hidden">
+        Удалить выполненные
+      </button>
+    </div>
+
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="model.js"></script>
+  <script src="viewmodel.js"></script>
+  <script src="view.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>
